@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title>css grids</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+  <header>SooHooXchange
+    <nav>
+      <a href="#">Home</a> |
+      <a href="#">Portfolio</a> |
+      <a href="#">Log In</a>
+    </nav>
+  </header>
+
+  <div class="wrapper">
+    <div class="mainsec">
+      <h1>Live Coin Prices</h1>
+      <div class="chart">
+        <table>
+          <thead>
+            <th class="Item">Item</th>
+            <th class="description">Description</th>
+            <th class="price">Price</th>
+            <th class="add">Add to cart</th>
+          </thead>
+          <tbody>
+            <tr>
+              <td>BTC</td>
+              <td>This is Bitcoin</td>
+              <td>$4,300</td>
+              <td><button onclick="addBitcoin()">Buy Bitcoin</button></td>
+            </tr>
+            <tr>
+              <td>XRP</td>
+              <td>This is XRP</td>
+              <td>$0.35</td>
+              <td><button onclick="addXRP()" type="button">Buy XRP</button></td>
+            </tr>
+            <tr>
+              <td>ETH</td>
+              <td>This is Ethereum</td>
+              <td>$124</td>
+              <td><button onclick="addEthereum()" type="button">Buy Ethereum</button></td>
+            </tr>
+          </tbody>
+        </table>
+        <h2>Your Cart</h2>
+        <table id="myCart">
+          <tr id="myRow">
+            <th class="Item">Item</th>
+            <th class="description">Description</th>
+            <th class="price">Price</th>
+          </tr>
+        </table>
+        <div id="total"></div>
+      </div>
+    </div>
+  </div>
+
+
+
+  <script type="text/javascript">
+
+  const btc = 4300;
+  const btcDesc = 'This is a Bitcoin';
+  const btcItem = 'BTC';
+  const xrp = .34;
+  const xrpDesc = 'This is a Bitcoin';
+  const xrpItem = 'BTC';
+  const eth = 124;
+  const ethDesc = 'This is a Bitcoin';
+  const ethItem = 'BTC';
+  let totalPrice = 0;
+
+
+  function addBitcoin(){
+    let cart = document.getElementById("myCart");
+    let row = cart.insertRow(1);
+    let cell1 = row.insertCell(0);
+    let cell2 = row.insertCell(1);
+    let cell3 = row.insertCell(2);
+    cell1.innerHTML = btcItem;
+    cell2.innerHTML = btcDesc;
+    cell3.innerHTML = btc;
+    totalPrice = totalPrice + btc;
+    document.getElementById("total").innerHTML = totalPrice;
+  return totalPrice;
+  }
+
+  function addXRP(){
+    let cart = document.getElementById("myCart");
+    let row = cart.insertRow(1);
+    let cell1 = row.insertCell(0);
+    let cell2 = row.insertCell(1);
+    let cell3 = row.insertCell(2);
+    cell1.innerHTML = xrpItem;
+    cell2.innerHTML = xrpDesc;
+    cell3.innerHTML = xrp;
+    totalPrice = totalPrice + xrp;
+    document.getElementById("total").innerHTML = totalPrice;
+  return totalPrice;
+  }
+
+  function addEthereum(){
+    let cart = document.getElementById("myCart");
+    let row = cart.insertRow(1);
+    let cell1 = row.insertCell(0);
+    let cell2 = row.insertCell(1);
+    let cell3 = row.insertCell(2);
+    cell1.innerHTML = ethItem;
+    cell2.innerHTML = ethDesc;
+    cell3.innerHTML = eth;
+    totalPrice = totalPrice + eth;
+    document.getElementById("total").innerHTML = totalPrice;
+  return totalPrice;
+  }
+
+
+  </script>
+</body>
+
+</html>
