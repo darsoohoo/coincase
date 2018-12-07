@@ -10,7 +10,8 @@
 </head>
 
 <body>
-  <header>Hi
+  <header>
+    <div id="header-phrase">coinbase</div>
     <nav>
       <a href="#">Home</a> |
       <a href="#">Portfolio</a> |
@@ -20,31 +21,36 @@
 
   <div class="wrapper">
     <div class="mainsec">
-      <h1>Live Coin Prices</h1>
+      <h1>Buy and sell cryptocurrency</h1>
       <div class="chart">
         <table>
           <thead>
-            <th class="Item">Item</th>
+            <th class="item"></th>
+            <th class="name">Name</th>
             <th class="description">Description</th>
             <th class="price">Price</th>
             <th class="add">Add to cart</th>
           </thead>
           <tbody>
             <tr>
-              <td>BTC</td>
-              <td>This is Bitcoin</td>
+              <td><img class="symbol" src="https://www.coinbase.com/assets/assets/1-8022fd53c251f18cb39cefede445f1c78a3b265989232f0bb46b9c4622e55a9e.png" alt="bitcoin logo"></td>
+              <td class="sym">BTC</td>
+              <td>This is a freakin Bitcoin</td>
               <td id="btc-price"></td>
               <td><button onclick="addBitcoin()">Buy Bitcoin</button></td>
             </tr>
+
             <tr>
+              <td><img class="symbol" src="https://www.coinbase.com/assets/assets/52-477a90ea7736b8757b093acef507a9aab6968e7b564e52716deb3803160ee49a.png" alt="ethereum logo"></td>
               <td>XRP</td>
-              <td>This is XRP</td>
-              <td>$0.35</td>
+              <td>This is XRP. This is THE BEST</td>
+              <td id="xrp-price">$.34</td>
               <td><button onclick="addXRP()" type="button">Buy XRP</button></td>
             </tr>
             <tr>
+              <td><img class="symbol" src="https://www.coinbase.com/assets/assets/1027-99bf2102cc13a51bb226f931b8d0fa4c5b3ca9dc4179167e89d7ee3f677c3fdb.png" alt="ethereum logo"></td>
               <td>ETH</td>
-              <td>This is Ethereum</td>
+              <td>This is Ethereum. It's pretty cool.</td>
               <td>$124</td>
               <td><button onclick="addEthereum()" type="button">Buy Ethereum</button></td>
             </tr>
@@ -53,9 +59,10 @@
         <h2>Your Cart</h2>
         <table id="myCart">
           <tr id="myRow">
-            <th class="Item">Item</th>
+            <th class="sym">Name</th>
             <th class="description">Description</th>
             <th class="price">Price</th>
+            <th class="remove">Cart Items</th>
           </tr>
         </table>
         <div id="total"></div>
@@ -70,9 +77,7 @@
 
 function reqListener() {
   let data = JSON.parse(this.responseText);
-  console.log(data);
-  let btcPrice = JSON.parse(data.price);
-  //console.log(btcPrice);
+  let btcPrice = JSON.parse(data.lastPrice);
   let td = document.getElementById('btc-price')
   td.innerText = btcPrice;
   setBTCPrice(btcPrice);
@@ -93,9 +98,15 @@ function reqError(err) {
 var oReq = new XMLHttpRequest();
 oReq.onload = reqListener;
 oReq.onerror = reqError;
-oReq.open('get', 'https://api.binance.com/api/v3/avgPrice?symbol=BTCUSDT', true);
+oReq.open('get', 'https://api.binance.com/api/v1/ticker/24hr?symbol=BTCUSDT', true);
 oReq.send();
 
+
+
+
+
+
+//https://api.binance.com/api/v3/avgPrice?symbol=BTCUSDT
 
 
   /*
