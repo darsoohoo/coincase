@@ -25,6 +25,7 @@
     let coinArray = data.array;
     let btcPrice = coinArray;
     console.log(data);
+    response.addHeader("Access-Control-Allow-Origin", "*");
 
   }).catch(err => {
     // Do something for an error here

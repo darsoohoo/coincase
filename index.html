@@ -10,7 +10,7 @@
 </head>
 
 <body>
-  <header>SooHooXchange
+  <header>Hi
     <nav>
       <a href="#">Home</a> |
       <a href="#">Portfolio</a> |
@@ -33,7 +33,7 @@
             <tr>
               <td>BTC</td>
               <td>This is Bitcoin</td>
-              <td>$4,300</td>
+              <td id="btc-price"></td>
               <td><button onclick="addBitcoin()">Buy Bitcoin</button></td>
             </tr>
             <tr>
@@ -67,18 +67,114 @@
 
   <script type="text/javascript">
 
-/*  var burl = "https://api.binance.com";
-  var query = '/api/v1/exchangeInfo'
-  //query += '?symbol=BTCUSDT&limit=1';
+
+function reqListener() {
+  let data = JSON.parse(this.responseText);
+  console.log(data);
+  let btcPrice = JSON.parse(data.price);
+  //console.log(btcPrice);
+  let td = document.getElementById('btc-price')
+  td.innerText = btcPrice;
+  setBTCPrice(btcPrice);
+  return btcPrice;
+}
+
+var liveBTC;
+function setBTCPrice(price){
+  liveBTC = price;
+  console.log('livebtc: '+ liveBTC);
+}
+
+
+function reqError(err) {
+  console.log('Fetch Error :-S', err);
+}
+
+var oReq = new XMLHttpRequest();
+oReq.onload = reqListener;
+oReq.onerror = reqError;
+oReq.open('get', 'https://api.binance.com/api/v3/avgPrice?symbol=BTCUSDT', true);
+oReq.send();
+
+
+
+  /*
+  fetch('https://api.binance.com/api/v3/avgPrice?symbol=BTCUSDT').then(function(response) {
+    console.log(response.headers.get('Content-Type'));
+    console.log(response.headers.get('Date'));
+
+    console.log(response.status);
+    console.log(response.statusText);
+    console.log(response.type);
+    console.log(response.url);
+    console.log(response.mins);
+});
+*/
+
+
+
+
+
+/*
+  fetch('https://api.binance.com/api/v3/avgPrice?symbol=BTCUSDT')
+  .then(
+    function(response) {
+      if (response.status !== 200) {
+        console.log('Looks like there was a problem. Status Code: ' +
+          response.status);
+        return;
+      }
+
+      // Examine the text in the response
+      response.json().then(function(data) {
+        console.log(data);
+      });
+    }
+  )
+  .catch(function(err) {
+    console.log('Fetch Error :-S', err);
+  });
+
+
+
+*/
+
+/*
+  function reqListener() {
+  var data = JSON.parse(this.responseText);
+  console.log(data);
+}
+
+function reqError(err) {
+  console.log('Fetch Error :-S', err);
+}
+var url = "https://api.binance.com/api/v3/avgPrice?symbol=BTCUSDT";
+var oReq = new XMLHttpRequest();
+oReq.onload = reqListener;
+oReq.onerror = reqError;
+oReq.open('get', url, true);
+oReq.send();
+*/
+
+
+/*
+  var burl = "https://api.binance.com";
+  var query = '/api/v3/avgPrice'
+  query += '?symbol=BTCUSDT';
   var url = burl + query;
   var ourRequest = new XMLHttpRequest();
   ourRequest.open('GET',url,true);
   ourRequest.onload = function(){
     console.log(ourRequest.responseText);
     console.log('hi');
+
   }
   ourRequest.send();
-  */
+  console.log('ho');
+
+*/
+
+
   </script>
 
 

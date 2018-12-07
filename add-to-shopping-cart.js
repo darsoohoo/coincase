@@ -1,4 +1,6 @@
-const btc = 4300;
+
+
+
 const btcDesc = 'This is a Bitcoin';
 const btcItem = 'BTC';
 const xrp = .34;
@@ -18,8 +20,8 @@ function addBitcoin(){
   let cell3 = row.insertCell(2);
   cell1.innerHTML = btcItem;
   cell2.innerHTML = btcDesc;
-  cell3.innerHTML = btc;
-  totalPrice = totalPrice + btc;
+  cell3.innerHTML = liveBTC;
+  totalPrice = totalPrice + liveBTC;
   document.getElementById("total").innerHTML = totalPrice;
 return totalPrice;
 }
