@@ -1,17 +1,12 @@
-
-
-
 const btcDesc = 'This is a Bitcoin';
 const btcItem = 'BTC';
-const xrp = .34;
 const xrpDesc = 'This is a XRP';
 const xrpItem = 'XRP';
-const eth = 124;
 const ethDesc = 'This is an Ethereum';
 const ethItem = 'ETH';
 let totalPrice = 0;
 
-
+//ADDS 1 BITCOIN TO CART WHEN BUY BITCOIN BUTTON IS CLICKED
 function addBitcoin(){
   let cart = document.getElementById("myCart");
   let row = cart.insertRow(1);
@@ -21,11 +16,13 @@ function addBitcoin(){
   cell1.innerHTML = btcItem;
   cell2.innerHTML = btcDesc;
   cell3.innerHTML = liveBTC;
-  totalPrice = totalPrice + liveBTC;
-  document.getElementById("total").innerHTML = totalPrice;
+  totalPrice = totalPrice + parseFloat(liveBTC);
+  document.getElementById("total").innerHTML = "$" + totalPrice.toFixed(2);
 return totalPrice;
 }
 
+
+//ADDS 1 XRP TO CART WHEN BUY XRP BUTTON IS CLICKED
 function addXRP(){
   let cart = document.getElementById("myCart");
   let row = cart.insertRow(1);
@@ -34,12 +31,13 @@ function addXRP(){
   let cell3 = row.insertCell(2);
   cell1.innerHTML = xrpItem;
   cell2.innerHTML = xrpDesc;
-  cell3.innerHTML = xrp;
-  totalPrice = totalPrice + xrp;
-  document.getElementById("total").innerHTML = totalPrice;
+  cell3.innerHTML = liveXRP;
+  totalPrice = totalPrice + parseFloat(liveXRP);
+  document.getElementById("total").innerHTML = "$" + totalPrice.toFixed(2);
 return totalPrice;
 }
 
+//ADDS 1 ETH TO CART WHEN BUY ETHEREUM BUTTON IS CLICKED
 function addEthereum(){
   let cart = document.getElementById("myCart");
   let row = cart.insertRow(1);
@@ -48,8 +46,8 @@ function addEthereum(){
   let cell3 = row.insertCell(2);
   cell1.innerHTML = ethItem;
   cell2.innerHTML = ethDesc;
-  cell3.innerHTML = eth;
-  totalPrice = totalPrice + eth;
-  document.getElementById("total").innerHTML = totalPrice;
+  cell3.innerHTML = liveETH;
+  totalPrice = totalPrice + parseFloat(liveETH);
+  document.getElementById("total").innerHTML = "$" + totalPrice.toFixed(2);
 return totalPrice;
 }

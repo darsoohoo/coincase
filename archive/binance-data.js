@@ -14,7 +14,7 @@
 */
 
 
-
+/*
   fetch('https://api.binance.com/api/v3/ticker/price')
   .then(response => {
     return response.json();
@@ -25,8 +25,9 @@
     let coinArray = data.array;
     let btcPrice = coinArray;
     console.log(data);
-    response.addHeader("Access-Control-Allow-Origin", "*");
+    response.addHeader("Access-Control-Allow-Origin", "https://api.binance.com");
 
   }).catch(err => {
     // Do something for an error here
   });
+*/
