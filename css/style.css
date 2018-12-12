@@ -1,11 +1,25 @@
 body {
-  display: grid;
-  grid-template-columns:1fr 1fr 1fr 1fr 1fr;
-  grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
-  /*border: blue solid 5px;*/
 
 }
 
+.flex-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+}
+
+.flex-container>div{
+  align-items: center;
+  justify-content: center;
+  align-content:stretch;
+}
+
+
+
+
+
+/*
 
 header {
   display: grid;
@@ -23,43 +37,34 @@ nav {
   font-size: 20px;
 }
 
-
-.wrapper {
-  grid-column: 1/6;
-  grid-row: 2/10;
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
-  grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
-  /*border: red solid 5px;*/
-
+.price-table {
+  float:right;
 }
 
-.wrapper>div {
-  padding: 5px;
-  /*border-style: solid;*/
+
+.page-content{
+    display: flex;
+  align-items:center;
+  justify-content: center;
 }
 
-/*
-.sidebarsec {
-  grid-column: 1;
-  grid-row: 1/6;
 
-}
-*/
+
 
 .mainsec {
   grid-column: 1/6;
   grid-row: 1/6;
   display: grid;
-  /*grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;*/
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
   grid-template-columns: repeat(12,1fr);
-  /*grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;*/
+  grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
   grid-template-rows: repeat(9, 1fr);
-  /*border: green solid 5px;*/
+  /*border: green solid 5px;
 }
 
+
 .mainsec h1 {
-  /*border: solid brown;*/
+  border: solid brown;
   background: #002f6b;
   color: white;
   grid-column-start: 1;
@@ -70,7 +75,7 @@ nav {
 }
 
 .mainsec h2 {
-  /*border: solid brown;*/
+  border: solid brown;
   text-align: center;
   font-family: Graphik, sans-serif;
   font-size: 30px;
@@ -85,15 +90,17 @@ nav {
 }
 
 table {
-/*  border-top:black solid 2px;
-  border-bottom: black solid 2px;*/
+  border-top:black solid 2px;
+  border-bottom: black solid 2px;
   border-collapse: collapse;
 
 }
 
+
+
 .symbol{
-  height: 100%;
-  width: 100%;
+  height: 42;
+  width: 42;
 }
 
 table tr:last-child td:first-child {
@@ -104,11 +111,10 @@ table tr:last-child td:last-child {
     border-bottom-right-radius: 10px;
 }
 
-.item {
-  width: 120px;
-}
+
+
 .symbol {
-  width: 40px;
+  width: 42px;
 }
 .name {
   width: 30px;
@@ -120,8 +126,8 @@ table tr:last-child td:last-child {
   width: 90px;
 }
 th {
-/*  border-left:solid black 2px;
-  border-right: solid black 2px;*/
+ border-left:solid black 2px;
+  border-right: solid black 2px;
   height: 40px;
   padding: 2px;
   width:200px;
@@ -135,8 +141,8 @@ th {
 
 
 td {
-  /*border-left:solid black 2px;
-  border-right: solid black 2px;*/
+  border-left:solid black 2px;
+  border-right: solid black 2px;
   padding: 4px;
   height: 40px;
   text-align: center;
@@ -153,15 +159,18 @@ tr:nth-child(odd){
 
 #total {
   text-align: right;
-  /*border-style: solid;*/
-  /*border-radius: 5px;*/
-  /*border-color: black;*/
+  rder-style: solid;
+  border-radius: 5px;
+  border-color: black;
   font-family: Graphik, sans-serif;
   font-size: 25px;
   height: 30px;
   width: 665px;
 }
+
+
 button {
+
     font-size: 16px;
     background-color: rgb(58, 204, 138);
     font-family: Graphik, sans-serif;
@@ -181,3 +190,4 @@ button {
     text-align: center;
 
 }
+*/
