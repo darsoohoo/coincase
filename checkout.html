@@ -58,26 +58,7 @@
               <td class="sym">BTC</td>
               <td>This is a Bitcoin</td>
               <td id="btc-price"></td>
-              <td><button id="demo-show-toast" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" onclick="addBitcoin()" type="button">Buy</button>
-              <div id="demo-toast-example" class="mdl-js-snackbar mdl-snackbar">
-                <div class="mdl-snackbar__text"></div>
-                <button class="mdl-snackbar__action" type="button"></button>
-              </div>
-<script>
-(function() {
-  'use strict';
-  window['counter'] = 0;
-  var snackbarContainer = document.querySelector('#demo-toast-example');
-  var showToastButton = document.querySelector('#demo-show-toast');
-  showToastButton.addEventListener('click', function() {
-    'use strict';
-    var data = {message: ++counter + ' Bitcoin(s)'};
-    snackbarContainer.MaterialSnackbar.showSnackbar(data);
-  });
-}());
-</script>
-
-              </td>
+              <td><button   class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" color="#3acc8a" onclick="addBitcoin()">Buy</button></td>
             </tr>
 
             <tr>
@@ -136,7 +117,7 @@
       //GET THE HTML ELEMENT FOR THE PRICE DISPLAY
       let btcTd = document.getElementById('btc-price');
       let xrpTd = document.getElementById('xrp-price');
-      let ethTd = document.getElementById('eth-price');  
+      let ethTd = document.getElementById('eth-price');
     
     
       //APPEND COIN PRICE TO THE HTML ELEMENT TO DISPLAY THE COIN PRICE
