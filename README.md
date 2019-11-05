@@ -1,4 +1,4 @@
-# live-crypto-exchange
+# coincase
 
 My first JavaScript app from Bloc bootcamp. 
 
