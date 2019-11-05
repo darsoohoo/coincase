@@ -17,7 +17,7 @@
   <header class="mdl-layout__header">
     <div class="mdl-layout__header-row">
       <!-- Title -->
-      <span class="mdl-layout-title">coinbase</span>
+      <span class="mdl-layout-title">coincase</span>
       <!-- Add spacer, to align navigation to the right -->
       <div class="mdl-layout-spacer"></div>
       <!-- Navigation. We hide it in small screens. -->
@@ -30,7 +30,7 @@
     </div>
   </header>
   <div class="mdl-layout__drawer">
-    <span class="mdl-layout-title">coinbase</span>
+    <span class="mdl-layout-title">coincase</span>
     <nav class="mdl-navigation">
       <a class="mdl-navigation__link" href="">Home</a>
       <a class="mdl-navigation__link" href="">Portfolio</a>
@@ -63,35 +63,22 @@
                 <div class="mdl-snackbar__text"></div>
                 <button class="mdl-snackbar__action" type="button"></button>
               </div>
-<script>
-(function() {
-  'use strict';
-  window['counter'] = 0;
-  var snackbarContainer = document.querySelector('#demo-toast-example');
-  var showToastButton = document.querySelector('#demo-show-toast');
-  showToastButton.addEventListener('click', function() {
-    'use strict';
-    var data = {message: ++counter + ' Bitcoin(s)'};
-    snackbarContainer.MaterialSnackbar.showSnackbar(data);
-  });
-}());
-</script>
 
               </td>
             </tr>
 
             <tr>
-              <td><img height="42" width="42" class="symbol" src="https://www.coinbase.com/assets/assets/52-477a90ea7736b8757b093acef507a9aab6968e7b564e52716deb3803160ee49a.png" alt="ethereum logo"></td>
+              <td><img height="42" width="42" class="symbol" src="https://dynamic-assets.coinbase.com/e81509d2307f706f3a6f8999968874b50b628634abf5154fc91a7e5f7685d496a33acb4cde02265ed6f54b0a08fa54912208516e956bc5f0ffd1c9c2634099ae/asset_icons/3af4b33bde3012fd29dd1366b0ad737660f24acc91750ee30a034a0679256d0b.png" alt="xrp logo"></td>
               <td>XRP</td>
               <td>This is XRP</td>
-              <td id="xrp-price">$.34</td>
+              <td id="xrp-price"></td>
               <td><button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" onclick="addXRP()" type="button">Buy</button></td>
             </tr>
             <tr>
               <td><img height="42" width="42" class="symbol" src="https://www.coinbase.com/assets/assets/1027-99bf2102cc13a51bb226f931b8d0fa4c5b3ca9dc4179167e89d7ee3f677c3fdb.png" alt="ethereum logo"></td>
               <td>ETH</td>
               <td>This is Ethereum</td>
-              <td id="eth-price">$124</td>
+              <td id="eth-price"></td>
               <td><button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" onclick="addEthereum()" type="button">Buy</button></td>
             </tr>
           </tbody>
@@ -123,34 +110,39 @@
   function reqListener() {
     let data = JSON.parse(this.responseText);
     let list = document.getElementById("all-coins")
-
+    let btc,xrp,eth
     //LOOP THROUGH OBJECT AND CREATE A LIST ITEM FOR EACH ONE
     for(var i = 0; i < data.length; i++){
-   
-     //GET LAST LIVE PRICE OF COIN FROM OBJECT ARRAY AND SET TO LOCAL VARIABLES
-      let btc = data[11].lastPrice;
-      let xrp = data[308].lastPrice;
-      let eth = data[12].lastPrice;
-    
-    
-      //GET THE HTML ELEMENT FOR THE PRICE DISPLAY
-      let btcTd = document.getElementById('btc-price');
-      let xrpTd = document.getElementById('xrp-price');
-      let ethTd = document.getElementById('eth-price');  
-    
-    
-      //APPEND COIN PRICE TO THE HTML ELEMENT TO DISPLAY THE COIN PRICE
-      btcTd.innerText = btc;
-      xrpTd.innerText = xrp;
-      ethTd.innerText = eth;
-    
-      //CALL THE FUNCTION AND PASS LOCAL VARIABLES TO SET GLOBAL VARIABLES FOR LIVE COIN PRICE
-      setBTCPrice(btc);
-      setXRPPrice(xrp);
-      setETHPrice(eth);
-    
-   }
+
+      //SET LAST LIVE PRICE OF COIN FROM OBJECT ARRAY AND SET TO LOCAL VARIABLES
+      if(data[i].symbol === "BTCUSDT") {
+        btc = data[i].lastPrice;
+      }
+      if(data[i].symbol === "XRPUSDT") {
+        xrp = data[i].lastPrice;
+      }
+      if(data[i].symbol === "ETHUSDT") {
+        eth = data[i].lastPrice;
+      }
+
+    }
+    //GET THE HTML ELEMENT FOR THE PRICE DISPLAY
+    let btcTd = document.getElementById('btc-price');
+    let xrpTd = document.getElementById('xrp-price');
+    let ethTd = document.getElementById('eth-price');
+
+    //APPEND COIN PRICE TO THE HTML ELEMENT TO DISPLAY THE COIN PRICE
+    btcTd.innerText = btc;
+    xrpTd.innerText = xrp;
+    ethTd.innerText = eth;
+
+    //CALL THE FUNCTION AND PASS LOCAL VARIABLES TO SET GLOBAL VARIABLES FOR LIVE COIN PRICE
+    setBTCPrice(btc);
+    setXRPPrice(xrp);
+    setETHPrice(eth);
+
   }
+  
 
 
   //SETS THE GLOBAL VARIABLE OF LIVE BITCOIN PRICE SO IT CAN BE USED IN THE add-to-shopping-cart CLASS

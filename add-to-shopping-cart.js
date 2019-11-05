@@ -16,7 +16,7 @@ function addBitcoin(){
   let cell4 = row.insertCell(3);
   let cell5 = row.insertCell(4);
   
-  let img = document.createElement('img');
+  let img = document.createElement('img'); 
   img.src = "https://www.coinbase.com/assets/assets/1-8022fd53c251f18cb39cefede445f1c78a3b265989232f0bb46b9c4622e55a9e.png"
   cell1.appendChild(img);
   
@@ -92,7 +92,7 @@ function addXRP(){
   let cell5 = row.insertCell(4);
   
   let img = document.createElement('img');
-  img.src = "https://www.coinbase.com/assets/assets/52-477a90ea7736b8757b093acef507a9aab6968e7b564e52716deb3803160ee49a.png"
+  img.src = "https://dynamic-assets.coinbase.com/e81509d2307f706f3a6f8999968874b50b628634abf5154fc91a7e5f7685d496a33acb4cde02265ed6f54b0a08fa54912208516e956bc5f0ffd1c9c2634099ae/asset_icons/3af4b33bde3012fd29dd1366b0ad737660f24acc91750ee30a034a0679256d0b.png"
   cell1.appendChild(img);
   
   let height = document.createAttribute("height");
